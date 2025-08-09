@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://db3cysvwsqw0y"]
+
+[ext_resource type="PackedScene" uid="uid://c23jocm85vvq0" path="res://sceans/player.tscn" id="3_sytet"]
+[ext_resource type="Script" uid="uid://did22mcpnieqc" path="res://scripts/hud.gd" id="3_wi7tx"]
+[ext_resource type="Texture2D" uid="uid://dodac1bgxs2r5" path="res://assets/UI/Sci-Fi UI Game Asset Pack/green assets/sliders and lines/bar-life-spritesheet-1.png" id="4_ldleo"]
+[ext_resource type="PackedScene" uid="uid://ck4pb55gjx6km" path="res://sceans/map.tscn" id="4_wi7tx"]
+[ext_resource type="Texture2D" uid="uid://cphggxr65rfx" path="res://assets/UI/Sci-Fi UI Game Asset Pack/green assets/sliders and lines/bar-life-spritesheet-10.png" id="5_ldleo"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("3_sytet")]
+
+[node name="Map" parent="." instance=ExtResource("4_wi7tx")]
+
+[node name="HUD" type="CanvasLayer" parent="."]
+scale = Vector2(0.2, 0.2)
+transform = Transform2D(0.2, 0, 0, 0.2, 0, 0)
+follow_viewport_enabled = true
+script = ExtResource("3_wi7tx")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD"]
+anchors_preset = -1
+anchor_left = -0.208
+anchor_top = -0.185
+anchor_right = -0.208
+anchor_bottom = -0.185
+offset_left = 31.616
+offset_top = -48.12
+offset_right = 370.616
+offset_bottom = 63.88
+grow_horizontal = 0
+
+[node name="HealthBar" type="TextureProgressBar" parent="HUD/VBoxContainer"]
+layout_mode = 2
+step = 0.1
+value = 100.0
+texture_under = ExtResource("4_ldleo")
+texture_progress = ExtResource("5_ldleo")
+tint_progress = Color(0.368627, 1, 0, 1)
+
+[node name="FuelBar" type="TextureProgressBar" parent="HUD/VBoxContainer"]
+layout_mode = 2
+step = 0.1
+value = 100.0
+texture_under = ExtResource("4_ldleo")
+texture_progress = ExtResource("5_ldleo")
